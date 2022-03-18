@@ -43,29 +43,33 @@
  	line-height:35px;
  }
 
+ #picnews{
+     width: 960px;
+ }
+
 </style>
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
 <div id="middle">
-	<div id="middle_login">
-		<div class="titleBg">用户登录</div>
-		<div class="login_con">
-			<div id="infoField"  <c:if test="${userFront==null}">style="display:none;"</c:if>>
-				${userFront.nick_name}，欢迎您登录！
-				<br/><input type="button" id="loginOutBtn" class="btnstyle" value="退出"/>&nbsp;&nbsp;
-				<input type="button" id="selfCenterBtn" class="btnstyle" value="个人中心"/>
-			</div>
-			<div id="loginField" <c:if test="${userFront!=null}">style="display:none;"</c:if>>
-				用户名：<input type="text" id="user_name" class="inputstyle" name="user_name"  style="width:100px"/>
-				<br/>密　码：<input type="password" id="user_pass" class="inputstyle" name="user_pass"  style="width:100px"/>
-				<br/>　　　<input type="button" id="loginInBtn" class="btnstyle" value="登录"/>&nbsp;&nbsp;
-				<input type="button" id="regBtn" class="btnstyle" value="注册"/>
-			</div>
-		</div>
-	</div>
+<%--	<div id="middle_login">--%>
+<%--		<div class="titleBg">用户登录</div>--%>
+<%--		<div class="login_con">--%>
+<%--			<div id="infoField"  <c:if test="${userFront==null}">style="display:none;"</c:if>>--%>
+<%--				${userFront.nick_name}，欢迎您登录！--%>
+<%--				<br/><input type="button" id="loginOutBtn" class="btnstyle" value="退出"/>&nbsp;&nbsp;--%>
+<%--				<input type="button" id="selfCenterBtn" class="btnstyle" value="个人中心"/>--%>
+<%--			</div>--%>
+<%--			<div id="loginField" <c:if test="${userFront!=null}">style="display:none;"</c:if>>--%>
+<%--				用户名：<input type="text" id="user_name" class="inputstyle" name="user_name"  style="width:100px"/>--%>
+<%--				<br/>密　码：<input type="password" id="user_pass" class="inputstyle" name="user_pass"  style="width:100px"/>--%>
+<%--				<br/>　　　<input type="button" id="loginInBtn" class="btnstyle" value="登录"/>&nbsp;&nbsp;--%>
+<%--				<input type="button" id="regBtn" class="btnstyle" value="注册"/>--%>
+<%--			</div>--%>
+<%--		</div>--%>
+<%--	</div>--%>
 	<div id="picnews">
-<img src="images/bg.png" style ="height: 290px;" align="middle" />
+<img src="images/bg.png" style ="height: 290px; width: 960px;" align="middle" />
 </div>
 <div id="middle">	
 	<div id="middle_left">
