@@ -65,7 +65,7 @@
 		</div>
 	</div>
 	<div id="picnews">
-<img src="images/bg.png" style ="height: 290px; width: 960px" align="middle" />
+<img src="images/bg.png" style ="height: 290px;" align="middle" />
 </div>
 <div id="middle">	
 	<div id="middle_left">
