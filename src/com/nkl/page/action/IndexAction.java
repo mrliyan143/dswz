@@ -869,6 +869,16 @@ public class IndexAction {
 	public String myPwd(){
 		return "myPwd";
 	}
+
+	/**
+	 * @Title: reg
+	 * @Description: 跳转首页页面
+	 * @return String
+	 */
+	@RequestMapping(value="page_loginDefault.action")
+	public String loginDefault(){
+		return "userLogin";
+	}
 	
 	public String getTip() {
 		return tip;

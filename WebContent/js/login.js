@@ -11,6 +11,7 @@ $(document).ready(function(){
 	var loginField = $("#loginField");
 	var user_name = $("#user_name");
 	var user_pass = $("#user_pass");
+	var loginDefault = $("#loginDefault")
 	
 	loginOutBtn.bind('click',function(){
 		$.post('LoginOutSystem.action',null,
@@ -50,12 +51,16 @@ $(document).ready(function(){
 					}	
 		 },'json');
 	});
-	
+
 	regBtn.bind('click',function(){
 		 window.location.href="page_reg.action";
 	});
 	
 	selfCenterBtn.bind('click',function(){
 		 window.location.href="page_myInfo.action";
+	});
+
+	loginDefault.bind('click',function(){
+		window.location.href="page_index.action";
 	});
 });

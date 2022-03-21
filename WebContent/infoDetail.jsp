@@ -52,7 +52,7 @@
 	<div id="list">
 		 <div class="nav">当前位置: 主页 > 【${tbook.tbook_name}】-章节详情 >  </div>
 		 <div class="article_title">${info.info_title}</div>
-		 <div class="article_time">发布时间：${fn:substring(info.info_date,0,19)}　章节字数：${info.info_words}个　<a style="text-decoration:underline;" href="page_queryInfo.action?info_id=${info.pre_id}">${info.pre_id!=0?'上一章':''}</a>　<a  style="text-decoration:underline;" href="page_queryInfo.action?info_id=${info.next_id}">${info.next_id!=0?'下一章':''}</a></div>
+		 <div class="article_time">发布时间：${fn:substring(info.info_date,0,19)}　章节字数：${info.info_words}个　</div>
 		 <div class="article_con">${info.info_contentShow}</div>
 	</div>
 	<div id="Picture"></div>

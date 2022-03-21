@@ -15,7 +15,7 @@
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script language="javascript" type="text/javascript"> 
-	window.location.href="page_index.action";
+	window.location.href="page_loginDefault.action";
 </script>
 <style type="text/css">
  body,td,div
