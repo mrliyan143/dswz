@@ -35,8 +35,12 @@ public class LoginAction{
 				return "login";
 			}
 			
-			//用户登录查询
-			params.setUser_type(2);
+			if(loginManager.getUserType(params) == 2||loginManager.getUserType(params) == 3){
+				params.setUser_type(loginManager.getUserType(params));
+			}else{
+				params.setUser_type(2);
+			}
+
 			User admin = loginManager.getUser(params);
 			if (admin!=null) {
 				httpSession.setAttribute("admin", admin);
@@ -45,15 +49,15 @@ public class LoginAction{
 				model.addAttribute("params",params);
 				return "login";
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("tip","登录异常，请稍后重试");
 			model.addAttribute("params",params);
 			return "login";
 		}
-		
-		return "redirect:index.jsp"; 
+
+		return "redirect:index.jsp";
 	}
 	
 	/**
