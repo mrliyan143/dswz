@@ -20,5 +20,6 @@ public interface IUserDao {
 	public abstract int listUsersCount(User user);
 	
 	public int updateUserMoney(User user);
+	public abstract int getUserType(User user);
 
 }

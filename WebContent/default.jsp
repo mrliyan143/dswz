@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,19 +10,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">    
+<meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<script language="javascript" type="text/javascript"> 
+<script language="javascript" type="text/javascript">
 	var swf_width=673;
 	var swf_height=250;
 	//文字颜色|文字位置|文字背景颜色|文字背景透明度|按键文字颜色|按键默认颜色|按键当前颜色|自动播放时间|图片过渡效果|是否显示按钮|打开方式
 	var configtg='0x489b0d|1|0x86cdfb|6|0xffffff|0xC5DDBC|0x000033|4|3|1|_blank';
-	var files = '';   
+	var files = '';
 	var links = '';
-	var texts = '';   
+	var texts = '';
 	files='images/hdtp/11.jpg|images/hdtp/12.jpg|images/hdtp/13.jpg|images/hdtp/14.jpg';
 	links='|||';
 	function playit(){
@@ -32,7 +32,7 @@
 		document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+configtg+'">');
 		document.write('<embed src="images/hdtp/bcastr3.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+configtg+'&menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
 	}
-	
+
 </script>
 <style type="text/css">
  body,td,div
@@ -71,7 +71,7 @@
 	<div id="picnews">
 <img src="images/bg.png" style ="height: 290px; width: 960px;" align="middle" />
 </div>
-<div id="middle">	
+<div id="middle">
 	<div id="middle_left">
 		<div id="info">
 			<div class="titleBg">最新上架图书</div>
@@ -93,7 +93,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div id="middle_right">
 		<div id="info">
 			<div class="titleBg">热门图书排行</div>
@@ -115,7 +115,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 <jsp:include page="bottom.jsp"></jsp:include>
 <script type="text/javascript" src="js/login.js"></script>

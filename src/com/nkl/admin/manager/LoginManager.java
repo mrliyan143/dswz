@@ -43,5 +43,17 @@ public class LoginManager {
 		
 		return _user;
 	}
+
+	/**
+	 * @Title: getUser
+	 * @Description: 查询用户类型
+	 * @param user
+	 * @return User
+	 */
+
+	public int getUserType(User user){
+		int usertype = userDao.getUserType(user);
+		return usertype;
+	}
 	
 }
