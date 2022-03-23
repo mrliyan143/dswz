@@ -58,6 +58,8 @@ public class User extends BaseDomain {
 			return "注册用户"; 
 		case 2:
 			return "系统管理员";
+		case 3 :
+				return "作者";
 		default:
 			return "";
 		}
