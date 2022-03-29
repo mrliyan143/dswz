@@ -123,8 +123,15 @@ public class AdminManager {
 		}
 		userDao.updateUser(user);
 		userDao.updateUserMoney(user);
-		
 	}
+
+
+
+	public void updateBuyBook(User user){
+		userDao.updateBuyBook(user);
+	}
+
+
 	
 	/**
 	 * @Title: delUsers

@@ -21,9 +21,22 @@ public class User extends BaseDomain {
 	private String reg_date; // 
 	private int user_kind; // 1：普通 2：会员
 	private String invalid_date; 
-	private int user_type; // 1：注册用户 2：系统管理员 
-	
-	private String ids; //  
+	private int user_type; // 1：注册用户 2：系统管理员
+	private int buy_book;//0:未购买，1：已购买
+
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	public int getBuy_book() {
+		return buy_book;
+	}
+
+	public void setBuy_book(int buy_book) {
+		this.buy_book = buy_book;
+	}
+
+	private String ids; //
 	private String random;
 	private String user_types;
 	private String user_passOld; // 

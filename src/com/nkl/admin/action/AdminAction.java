@@ -796,6 +796,35 @@ public class AdminAction {
 		
 		return "sblog2Show";
 	}
+
+	/**
+	 * @Title: listSblog2s
+	 * @Description: 查询留言板
+	 * @return String
+	 */
+	@RequestMapping(value="admin/Admin_listSblog2s_1.action")
+	public String listSblog2s_1(Sblog2 paramsSblog2,PaperUtil paperUtil,
+							  ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
+		try {
+			//查询留言板
+			if (paramsSblog2==null) {
+				paramsSblog2 = new Sblog2();
+			}
+			//分页设置
+			paperUtil.setPagination(paramsSblog2);
+			int[] sum={0};
+			List<Sblog2> sblogs = adminManager.listSblog2s(paramsSblog2,sum);
+
+			model.addAttribute("sblogs", sblogs);
+			paperUtil.setTotalCount(sum[0]);
+
+		} catch (Exception e) {
+			setErrorTip("查询异常","main.jsp",model);
+			return "infoTip";
+		}
+
+		return "sblog2Show_1";
+	}
 	
 	/**
 	 * @Title: delSblog2s

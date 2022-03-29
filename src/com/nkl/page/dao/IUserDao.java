@@ -20,6 +20,8 @@ public interface IUserDao {
 	public abstract int listUsersCount(User user);
 	
 	public int updateUserMoney(User user);
-	public abstract int getUserType(User user);
 
+	public abstract int getBuyBook(User user);
+	public abstract int getUserType(User user);
+	public abstract int updateBuyBook(User user);
 }

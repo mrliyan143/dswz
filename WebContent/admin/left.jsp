@@ -268,7 +268,30 @@ H1 a {
 									<%--                                            <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>--%>
 								<li><a href="Admin_addTbookShow.action" target="MainFrame">新增图书</a></li>
 							</ul>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td><img src="images/menu_topline.gif" width="190" height="5" /></td>
+                                </tr>
+                            </table>
+                            <ul class="MM">
+                                    <%--                                            <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>--%>
+                                <li><a href="Admin_addTbookShow.action" target="MainFrame">图书收益</a></li>
+                            </ul>
 						</div>
+
+<%--                        <h1 class="type"><a href="javascript:void(0)">书评信息管理</a></h1>--%>
+<%--                        <div class="content">--%>
+<%--                            <table width="100%" border="0" cellspacing="0" cellpadding="0">--%>
+<%--                                <tr>--%>
+<%--                                    <td><img src="images/menu_topline.gif" width="190" height="5" /></td>--%>
+<%--                                </tr>--%>
+<%--                            </table>--%>
+<%--                            <ul class="MM">--%>
+<%--                                <li><a href="Admin_listSblog2s.action" target="MainFrame">书评信息查询</a></li>--%>
+<%--                            </ul>--%>
+
+
+                        </div>
 </c:if>
 				  
 					<script type="text/javascript">

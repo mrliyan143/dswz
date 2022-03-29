@@ -39,8 +39,7 @@ public class LoginManager {
 		
 		//user.setUser_pass(Md5.makeMd5(user.getUser_pass()));
 		User _user = userDao.getUser(user);
-		
-		
+
 		return _user;
 	}
 
@@ -54,6 +53,18 @@ public class LoginManager {
 	public int getUserType(User user){
 		int usertype = userDao.getUserType(user);
 		return usertype;
+	}
+
+	/**
+	 * @Title: getUser
+	 * @Description: 查询用户是否购买章节
+	 * @param user
+	 * @return User
+	 */
+
+	public int getBuyBook(User user){
+		int buybook = userDao.getBuyBook(user);
+		return buybook;
 	}
 	
 }
