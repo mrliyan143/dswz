@@ -1,15 +1,15 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head> 
+<head>
 <title>管理页面</title>
 <meta http-equiv="X-UA-Compatible" content="IE=8"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">  
+<meta http-equiv="expires" content="0">
 <script src="js/prototype.lite.js" type="text/javascript"></script>
 <script src="js/moo.fx.js" type="text/javascript"></script>
 <script src="js/moo.fx.pack.js" type="text/javascript"></script>
@@ -31,7 +31,7 @@ H1 {
 	width: 190px;
 	cursor: pointer;
 	height: 30px;
-	line-height: 20px;	
+	line-height: 20px;
 }
 H1 a {
 	display: block;
@@ -50,7 +50,7 @@ H1 a {
 .content{
 	width: 190px;
 	height: 26px;
-	
+
 }
 .MM ul {
 	list-style-type: none;
@@ -170,7 +170,7 @@ H1 a {
 					  <li><a href="modifyPwd.jsp" target="MainFrame">修改密码</a></li>
 					</ul>
 				  </div>
-				  
+
 				  <c:if test="${admin.user_type==2}">
 				  <h1 class="type"><a href="javascript:void(0)">普通用户管理</a></h1>
 				  <div class="content">
@@ -270,11 +270,11 @@ H1 a {
 							</ul>
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td><img src="images/menu_topline.gif" width="190" height="5" /></td>
+<%--                                    <td><img src="images/menu_topline.gif" width="190" height="5" /></td>--%>
                                 </tr>
                             </table>
                             <ul class="MM">
-                                    <%--                                            <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>--%>
+							    <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>
                                 <li><a href="Admin_addBookMoney.action" target="MainFrame">图书收益</a></li>
                             </ul>
 						</div>
@@ -293,20 +293,19 @@ H1 a {
 
                         </div>
 </c:if>
-				  
+
 					<script type="text/javascript">
 						var contents = document.getElementsByClassName('content');
 						var toggles = document.getElementsByClassName('type');
-					
+
 						var myAccordion = new fx.Accordion(
 							toggles, contents, {opacity: true, duration: 400}
 						);
 						myAccordion.showThisHideOpen(contents[0]);
 					</script>
-				</div>
 				</td>
 			  </tr>
-			</table>       	
+			</table>
         </div>
     </td>
   </tr>
