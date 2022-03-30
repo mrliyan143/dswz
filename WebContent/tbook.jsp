@@ -49,6 +49,7 @@ $(document).ready(function(){
 					<div class="products">
 					 <c:if test="${tbooks!=null &&  fn:length(tbooks)>0}">
    					 <c:forEach items="${tbooks}" var="tbook" varStatus="status">
+						 <c:if test="${tbook.tbook_show==1}">
 					<div class="product">
 						<div class="productPic"><a href="page_queryTbook.action?tbook_id=${tbook.tbook_id}"><img src="images/tbooks/${tbook.tbook_pic}" /></a></div>
 						<div class="productText"><span class="title">${tbook.tbook_name}</span>
@@ -56,6 +57,7 @@ $(document).ready(function(){
 						<br/>读者评分：${tbook.evaluate_score}
 						</div>
 					</div>
+						 </c:if>
 					</c:forEach>
 					</c:if> 
 					</div>

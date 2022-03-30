@@ -61,7 +61,7 @@
 						})
 				$.post('BuyBookMoneySystem.action', postStrId,
 						function(){
-							alert('收益到账');
+							alert('成功');
 							window.location.href="page_queryInfo.action?info_id=${info.next_id}";
 
 						})

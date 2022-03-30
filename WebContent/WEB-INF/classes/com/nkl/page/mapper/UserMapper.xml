@@ -97,6 +97,22 @@
 		]]>
 	</update>
 
+    <update id="updateBuyBook" parameterType="User">
+        <![CDATA[
+			UPDATE user
+		]]>
+        <set>
+            <if test="buy_book!=1">
+                <![CDATA[
+				buy_book = 1
+			]]>
+            </if>
+        </set>
+        <![CDATA[
+			where user_id = #{user_id}
+		]]>
+    </update>
+
 	<select id="getUser" parameterType="User" resultType="User">
 		<![CDATA[
 			SELECT * FROM user
@@ -220,6 +236,62 @@
 			<if test="user_kind!=0">
 			<![CDATA[
 				and user_kind = #{user_kind}
+			]]>
+			</if>
+		</where>
+	</select>
+
+	<select id="getUserType" parameterType="User" resultType="int">
+		<![CDATA[
+			SELECT user_type FROM user
+		]]>
+		<where>
+			<if test="user_id!=0">
+				<![CDATA[
+				user_id = #{user_id}
+			]]>
+			</if>
+			<if test="user_name!=null and user_name!=''">
+				<![CDATA[
+				and user_name = #{user_name}
+			]]>
+			</if>
+			<if test="user_pass!=null and user_pass!=''">
+				<![CDATA[
+				and user_pass = #{user_pass}
+			]]>
+			</if>
+			<if test="user_type!=0">
+				<![CDATA[
+				and user_type = #{user_type}
+			]]>
+			</if>
+		</where>
+	</select>
+
+	<select id="getBuyBook" parameterType="User" resultType="int">
+		<![CDATA[
+			SELECT buy_book FROM user
+		]]>
+		<where>
+			<if test="user_id!=0">
+				<![CDATA[
+				user_id = #{user_id}
+			]]>
+			</if>
+			<if test="user_name!=null and user_name!=''">
+				<![CDATA[
+				and user_name = #{user_name}
+			]]>
+			</if>
+			<if test="user_pass!=null and user_pass!=''">
+				<![CDATA[
+				and user_pass = #{user_pass}
+			]]>
+			</if>
+			<if test="user_type!=0">
+				<![CDATA[
+				and user_type = #{user_type}
 			]]>
 			</if>
 		</where>

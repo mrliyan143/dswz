@@ -56,6 +56,10 @@ public class AdminManager {
 		
 		return users;
 	}
+
+	public void upTbookShow(Tbook tbook){
+		tbookDao.upTbookShow(tbook);
+	}
 	
 	/**
 	 * @Title: initUser
@@ -285,6 +289,8 @@ public class AdminManager {
 		tbookDao.addTbook(tbook);
 		
 	}
+
+
 
 	/**
 	 * @Title: updateTbook

@@ -1,10 +1,11 @@
 package com.nkl.page.dao;
 
 import java.util.List;
+
+import com.nkl.page.domain.Tbook;
 import com.nkl.page.domain.User;
 
 public interface IUserDao {
-
 	public abstract int addUser(User user);
 
 	public abstract int delUser(String user_id);

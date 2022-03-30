@@ -29,8 +29,17 @@ public class Tbook extends BaseDomain {
 	private int collect_id; // 
 	private String ids;
 	private String random;
-	
-	public String getTbook_flagDesc() {
+	private int tbook_show;
+
+    public int getTbook_show() {
+        return tbook_show;
+    }
+
+    public void setTbook_show(int tbook_show) {
+        this.tbook_show = tbook_show;
+    }
+
+    public String getTbook_flagDesc() {
 		switch (tbook_flag) {
 		case 1:
 			return "连载中";

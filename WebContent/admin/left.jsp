@@ -239,7 +239,7 @@ H1 a {
 					</table>
 					<ul class="MM">
 					  <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>
-					  <li><a href="Admin_addTbookShow.action" target="MainFrame">新增图书</a></li>
+<%--					  <li><a href="Admin_addTbookShow.action" target="MainFrame">新增图书</a></li>--%>
 					</ul>
 				  </div>
 				  <h1 class="type"><a href="javascript:void(0)">书评信息管理</a></h1>
@@ -274,7 +274,6 @@ H1 a {
                                 </tr>
                             </table>
                             <ul class="MM">
-							    <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>
                                 <li><a href="Admin_addBookMoney.action" target="MainFrame">图书收益</a></li>
                             </ul>
 						</div>

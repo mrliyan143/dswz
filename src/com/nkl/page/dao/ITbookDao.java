@@ -5,6 +5,8 @@ import com.nkl.page.domain.Tbook;
 
 public interface ITbookDao {
 
+	public abstract int upTbookShow(Tbook Tbook);
+
 	public abstract int addTbook(Tbook tbook);
 
 	public abstract int delTbook(String tbook_id);

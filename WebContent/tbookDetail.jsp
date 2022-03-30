@@ -211,7 +211,7 @@
 							<td class="theme" colspan="2">书评内容：</td>
 						</tr>
 						<tr>
-							<td id="replyUser" align="left" colspan="2" style="padding-left:10px">发表书评</td>
+							<td id="replyUser" align="left" colspan="2" style="padding-left:10px"></td>
 						</tr>
 						<tr>
 							<td align="left" colspan="2" style="padding-left:10px">

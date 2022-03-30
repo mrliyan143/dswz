@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.nkl.common.util.JSONData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,7 +38,7 @@ public class AdminAction {
 	public void setAdminManager(AdminManager adminManager) {
 		this.adminManager = adminManager;
 	}
-	
+
 	/**
 	 * @Title: saveAdmin
 	 * @Description: 保存修改个人信息
@@ -66,7 +67,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: saveAdminPass
 	 * @Description: 保存修改个人密码
@@ -99,7 +100,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: listUsers
 	 * @Description: 查询普通用户
@@ -122,7 +123,7 @@ public class AdminAction {
 			//查询用户列表
 			paramsUser.setUser_type(1);
 			paramsUser.setUser_kind(1);
-			List<User> users = adminManager.listUsers(paramsUser,sum); 
+			List<User> users = adminManager.listUsers(paramsUser,sum);
 			model.addAttribute("users", users);
 			model.addAttribute("paramsUser", paramsUser);
 			paperUtil.setTotalCount(sum[0]);
@@ -131,10 +132,10 @@ public class AdminAction {
 			setErrorTip("查询普通用户异常", "main.jsp", model);
 			return "infoTip";
 		}
-		
+
 		return "userShow";
 	}
-	
+
 	/**
 	 * @Title: addUserShow
 	 * @Description: 显示添加普通用户页面
@@ -144,7 +145,7 @@ public class AdminAction {
 	public String addUserShow(ModelMap model){
 		return "userEdit";
 	}
-	
+
 	/**
 	 * @Title: addUser
 	 * @Description: 添加普通用户
@@ -161,7 +162,7 @@ public class AdminAction {
 			if (user!=null) {
 				model.addAttribute("tip","失败，该用户名已经存在！");
 				model.addAttribute("user", paramsUser);
-				
+
 				return "userEdit";
 			}
 			 //添加用户
@@ -169,16 +170,16 @@ public class AdminAction {
 			paramsUser.setUser_kind(1);
 			paramsUser.setReg_date(DateUtil.getCurDateTime());
 			adminManager.addUser(paramsUser);
-			
+
 			setSuccessTip("添加成功", "Admin_listUsers.action", model);
 		} catch (Exception e) {
 			setErrorTip("添加普通用户异常", "Admin_listUsers.action", model);
 		}
-		
+
 		return "infoTip";
 	}
-	
-	 
+
+
 	/**
 	 * @Title: editUser
 	 * @Description: 编辑用户
@@ -191,15 +192,15 @@ public class AdminAction {
 			 //得到用户
 			User user = adminManager.getUser(paramsUser);
 			model.addAttribute("user", user);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询普通用户异常", "Admin_listUsers.action", model);
 			return "infoTip";
 		}
-		
+
 		return "userEdit";
 	}
-	
+
 	/**
 	 * @Title: saveUser
 	 * @Description: 保存编辑用户
@@ -211,16 +212,16 @@ public class AdminAction {
 		try {
 			 //保存编辑用户
 			adminManager.updateUser(paramsUser);
-			
+
 			setSuccessTip("编辑成功", "Admin_listUsers.action", model);
 		} catch (Exception e) {
 			setErrorTip("编辑普通用户异常", "Admin_listUsers.action", model);
 			return "infoTip";
 		}
-		
+
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: delUsers
 	 * @Description: 删除用户
@@ -232,15 +233,15 @@ public class AdminAction {
 		try {
 			 //删除用户
 			adminManager.delUsers(paramsUser);
-			
+
 			setSuccessTip("删除普通用户成功", "Admin_listUsers.action", model);
 		} catch (Exception e) {
 			setErrorTip("删除普通用户异常", "Admin_listUsers.action", model);
 		}
-		
+
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: listUsers2
 	 * @Description: 查询会员用户
@@ -263,7 +264,7 @@ public class AdminAction {
 			//查询用户列表
 			paramsUser.setUser_type(1);
 			paramsUser.setUser_kind(2);
-			List<User> users = adminManager.listUsers(paramsUser,sum); 
+			List<User> users = adminManager.listUsers(paramsUser,sum);
 			model.addAttribute("users", users);
 			model.addAttribute("paramsUser", paramsUser);
 			paperUtil.setTotalCount(sum[0]);
@@ -272,10 +273,10 @@ public class AdminAction {
 			setErrorTip("查询会员用户异常", "main.jsp", model);
 			return "infoTip";
 		}
-		
+
 		return "userShow2";
 	}
-	
+
 	/**
 	 * @Title: addUserShow2
 	 * @Description: 显示添加会员用户页面
@@ -285,7 +286,7 @@ public class AdminAction {
 	public String addUserShow2(ModelMap model){
 		return "userEdit2";
 	}
-	
+
 	/**
 	 * @Title: addUser
 	 * @Description: 添加会员用户
@@ -302,7 +303,7 @@ public class AdminAction {
 			if (user!=null) {
 				model.addAttribute("tip","失败，该用户名已经存在！");
 				model.addAttribute("user", paramsUser);
-				
+
 				return "userEdit2";
 			}
 			 //添加用户
@@ -310,16 +311,16 @@ public class AdminAction {
 			paramsUser.setUser_kind(2);
 			paramsUser.setReg_date(DateUtil.getCurDateTime());
 			adminManager.addUser(paramsUser);
-			
+
 			setSuccessTip("添加成功", "Admin_listUsers2.action", model);
 		} catch (Exception e) {
 			setErrorTip("添加会员用户异常", "Admin_listUsers2.action", model);
 		}
-		
+
 		return "infoTip";
 	}
-	
-	 
+
+
 	/**
 	 * @Title: editUser2
 	 * @Description: 编辑用户
@@ -332,15 +333,15 @@ public class AdminAction {
 			 //得到用户
 			User user = adminManager.getUser(paramsUser);
 			model.addAttribute("user", user);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询会员用户异常", "Admin_listUsers2.action", model);
 			return "infoTip";
 		}
-		
+
 		return "userEdit2";
 	}
-	
+
 	/**
 	 * @Title: saveUser2
 	 * @Description: 保存编辑用户
@@ -352,16 +353,16 @@ public class AdminAction {
 		try {
 			 //保存编辑用户
 			adminManager.updateUser(paramsUser);
-			
+
 			setSuccessTip("编辑成功", "Admin_listUsers2.action", model);
 		} catch (Exception e) {
 			setErrorTip("编辑会员用户异常", "Admin_listUsers2.action", model);
 			return "infoTip";
 		}
-		
+
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: delUsers
 	 * @Description: 删除用户
@@ -373,15 +374,15 @@ public class AdminAction {
 		try {
 			 //删除用户
 			adminManager.delUsers(paramsUser);
-			
+
 			setSuccessTip("删除会员用户成功", "Admin_listUsers2.action", model);
 		} catch (Exception e) {
 			setErrorTip("删除会员用户异常", "Admin_listUsers2.action", model);
 		}
-		
+
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: listUpays
 	 * @Description: 查询支付记录
@@ -399,19 +400,19 @@ public class AdminAction {
 			//总的条数
 			int[] sum={0};
 			//查询支付记录列表
-			List<Upay> upays = adminManager.listUpays(paramsUpay,sum); 
-			
+			List<Upay> upays = adminManager.listUpays(paramsUpay,sum);
+
 			model.addAttribute("upays", upays);
 			paperUtil.setTotalCount(sum[0]);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询支付记录异常","main.jsp",model);
 			return "infoTip";
 		}
-		
+
 		return "upayShow";
 	}
-	
+
 	/**
 	 * @Title: listUsers3
 	 * @Description: 会员余额查询
@@ -434,7 +435,7 @@ public class AdminAction {
 			//查询用户列表
 			paramsUser.setUser_type(1);
 			paramsUser.setUser_kind(2);
-			List<User> users = adminManager.listUsers(paramsUser,sum); 
+			List<User> users = adminManager.listUsers(paramsUser,sum);
 			model.addAttribute("users", users);
 			model.addAttribute("paramsUser", paramsUser);
 			paperUtil.setTotalCount(sum[0]);
@@ -443,10 +444,10 @@ public class AdminAction {
 			setErrorTip("会员余额查询异常", "main.jsp", model);
 			return "infoTip";
 		}
-		
+
 		return "userShow3";
 	}
-	
+
 	/**
 	 * @Title: listBookTypes
 	 * @Description: 查询图书类型
@@ -459,25 +460,25 @@ public class AdminAction {
 			if (paramsBookType==null) {
 				paramsBookType = new BookType();
 			}
-			
+
 			//设置分页信息
 			paperUtil.setPagination(paramsBookType);
 			//总的条数
 			int[] sum={0};
 			//查询图书类型列表
-			List<BookType> bookTypes = adminManager.listBookTypes(paramsBookType,sum); 
-			
+			List<BookType> bookTypes = adminManager.listBookTypes(paramsBookType,sum);
+
 			model.addAttribute("bookTypes", bookTypes);
 			paperUtil.setTotalCount(sum[0]);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书类型异常","main.jsp",model);
 			return "infoTip";
 		}
-		
+
 		return "bookTypeShow";
 	}
-	
+
 	/**
 	 * @Title: addBookTypeShow
 	 * @Description: 显示添加图书类型页面
@@ -487,7 +488,7 @@ public class AdminAction {
 	public String addBookTypeShow(ModelMap model){
 		return "bookTypeEdit";
 	}
-	
+
 	/**
 	 * @Title: addBookType
 	 * @Description: 添加图书类型
@@ -506,19 +507,19 @@ public class AdminAction {
 				model.addAttribute("bookType", paramsBookType);
 				return "bookTypeEdit";
 			}
-			
+
 			 //添加图书类型
 			adminManager.addBookType(paramsBookType);
-			
+
 			setSuccessTip("添加成功","Admin_listBookTypes.action",model);
 		} catch (Exception e) {
 			setErrorTip("添加图书类型异常","Admin_listBookTypes.action",model);
 		}
-		
+
 		return "infoTip";
 	}
-	
-	 
+
+
 	/**
 	 * @Title: editBookType
 	 * @Description: 编辑图书类型
@@ -531,15 +532,15 @@ public class AdminAction {
 			 //得到图书类型
 			BookType bookType = adminManager.queryBookType(paramsBookType);
 			model.addAttribute("bookType", bookType);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书类型异常","Admin_listBookTypes.action",model);
 			return "infoTip";
 		}
-		
+
 		return "bookTypeEdit";
 	}
-	
+
 	/**
 	 * @Title: saveBookType
 	 * @Description: 保存编辑图书类型
@@ -558,20 +559,20 @@ public class AdminAction {
 				model.addAttribute("bookType", paramsBookType);
 				return "bookTypeEdit";
 			}
-			
+
 			 //保存编辑图书类型
 			adminManager.updateBookType(paramsBookType);
-			
+
 			setSuccessTip("编辑成功","Admin_listBookTypes.action",model);
 		} catch (Exception e) {
 			model.addAttribute("tip","编辑失败");
 			model.addAttribute("bookType", paramsBookType);
 			return "bookTypeEdit";
 		}
-		
+
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: delBookTypes
 	 * @Description: 删除图书类型
@@ -583,15 +584,15 @@ public class AdminAction {
 		try {
 			 //删除图书类型
 			adminManager.delBookTypes(paramsBookType);
-			
+
 			setSuccessTip("删除图书类型成功","Admin_listBookTypes.action",model);
 		} catch (Exception e) {
 			setErrorTip("删除图书类型异常","Admin_listBookTypes.action",model);
 		}
-		
+
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: listTbooks
 	 * @Description: 查询图书
@@ -620,7 +621,7 @@ public class AdminAction {
 			}
 			paramsTbook.setUser_id(Integer.parseInt(s));
 			int[] sum={0};
-			List<Tbook> tbooks = adminManager.listTbooks(paramsTbook,sum); 
+			List<Tbook> tbooks = adminManager.listTbooks(paramsTbook,sum);
 			model.addAttribute("tbooks", tbooks);
 			paperUtil.setTotalCount(sum[0]);
 			//查询图书类型
@@ -628,15 +629,15 @@ public class AdminAction {
 			bookType.setStart(-1);
 			List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
 			model.addAttribute("bookTypes", bookTypes);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书异常","main.jsp",model);
 			return "infoTip";
 		}
-		
+
 		return "tbookShow";
 	}
-	
+
 	/**
 	 * @Title: queryTbook
 	 * @Description: 查看图书
@@ -648,12 +649,12 @@ public class AdminAction {
 			 //得到图书
 			Tbook tbook = adminManager.queryTbook(paramsTbook);
 			model.addAttribute("tbook", tbook);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书异常","Admin_listTbooks.action",model);
 			return "infoTip";
 		}
-		
+
 		return "tbookDetail";
 	}
 
@@ -671,7 +672,7 @@ public class AdminAction {
 		}
 		return "index";
 	}
-	
+
 	/**
 	 * @Title: addTbookShow
 	 * @Description: 显示添加图书页面
@@ -684,7 +685,18 @@ public class AdminAction {
 		bookType.setStart(-1);
 		List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
 		model.addAttribute("bookTypes", bookTypes);
-		
+
+		return "tbookEdit";
+	}
+
+	@RequestMapping(value="admin/Admin_addTbookShow.action_1")
+	public String addTbookShow_1(ModelMap model){
+		//查询图书类型
+		BookType bookType = new BookType();
+		bookType.setStart(-1);
+		List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
+		model.addAttribute("bookTypes", bookTypes);
+
 		return "tbookEdit";
 	}
 
@@ -698,7 +710,7 @@ public class AdminAction {
 
 		return "bookMoney";
 	}
-	
+
 	/**
 	 * @Title: addTbook
 	 * @Description: 添加图书
@@ -717,7 +729,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: editTbook
 	 * @Description: 编辑图书
@@ -730,21 +742,21 @@ public class AdminAction {
 			 //得到图书
 			Tbook tbook = adminManager.queryTbook(paramsTbook);
 			model.addAttribute("tbook", tbook);
-			
+
 			//查询图书类型
 			BookType bookType = new BookType();
 			bookType.setStart(-1);
 			List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
 			model.addAttribute("bookTypes", bookTypes);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书异常","Admin_listTbooks.action",model);
 			return "infoTip";
 		}
-		
+
 		return "tbookEdit";
 	}
-	
+
 	/**
 	 * @Title: saveTbook
 	 * @Description: 保存编辑图书
@@ -757,24 +769,24 @@ public class AdminAction {
 			 //保存编辑图书
 			adminManager.updateTbook(paramsTbook);
 			adminManager.updateTbookClick(paramsTbook);
-			
+
 		} catch (Exception e) {
 			model.addAttribute("tip","编辑失败");
 			model.addAttribute("tbook", paramsTbook);
-			
+
 			//查询图书类型
 			BookType bookType = new BookType();
 			bookType.setStart(-1);
 			List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
 			model.addAttribute("bookTypes", bookTypes);
-			
+
 			return "tbookEdit";
 		}
 		setSuccessTip("编辑图书成功","Admin_listTbooks.action",model);
 		return "infoTip";
 	}
-	
-	
+
+
 	/**
 	 * @Title: delTbooks
 	 * @Description: 删除图书
@@ -793,7 +805,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: listSblog2s
 	 * @Description: 查询留言板
@@ -810,16 +822,16 @@ public class AdminAction {
 			//分页设置
 			paperUtil.setPagination(paramsSblog2);
 			int[] sum={0};
-			List<Sblog2> sblogs = adminManager.listSblog2s(paramsSblog2,sum); 
-			
+			List<Sblog2> sblogs = adminManager.listSblog2s(paramsSblog2,sum);
+
 			model.addAttribute("sblogs", sblogs);
 			paperUtil.setTotalCount(sum[0]);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询异常","main.jsp",model);
 			return "infoTip";
 		}
-		
+
 		return "sblog2Show";
 	}
 
@@ -851,7 +863,7 @@ public class AdminAction {
 
 		return "sblog2Show_1";
 	}
-	
+
 	/**
 	 * @Title: delSblog2s
 	 * @Description: 删除留言板
@@ -870,7 +882,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: listInfos
 	 * @Description: 查询图书章节
@@ -886,25 +898,39 @@ public class AdminAction {
 			//设置分页信息
 			paperUtil.setPagination(paramsInfo);
 			int[] sum={0};
-			List<Info> infos = adminManager.listInfos(paramsInfo,sum); 
+			List<Info> infos = adminManager.listInfos(paramsInfo,sum);
 			model.addAttribute("infos", infos);
 			paperUtil.setTotalCount(sum[0]);
-			
+
 			//查询图书
 			Tbook tbook = new Tbook();
 			tbook.setTbook_id(paramsInfo.getTbook_id());
 			tbook = adminManager.queryTbook(tbook);
 			model.addAttribute("tbook", tbook);
 			model.addAttribute("tbook_id", paramsInfo.getTbook_id());
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询常见帮助异常","main.jsp",model);
 			return "infoTip";
 		}
-		
+
 		return "infoShow";
 	}
-	
+
+	@RequestMapping(value = "admin/Admin_bookshow.action")
+	public String upBookShow(Tbook paramTbook,PaperUtil paperUtil,
+						   ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
+		try {
+                adminManager.upTbookShow(paramTbook);
+
+		} catch (Exception e) {
+			setErrorTip("错误","main.jsp",model);
+			return "infoTip";
+		}
+
+		return "tbookShow";
+	}
+
 	/**
 	 * @Title: addInfoShow
 	 * @Description: 显示添加图书章节页面
@@ -915,7 +941,7 @@ public class AdminAction {
 		model.addAttribute("tbook_id", paramsInfo.getTbook_id());
 		return "infoEdit";
 	}
-	
+
 	/**
 	 * @Title: addInfo
 	 * @Description: 添加图书章节
@@ -935,7 +961,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: queryInfo
 	 * @Description: 查询图书章节信息
@@ -953,15 +979,15 @@ public class AdminAction {
 			tbook.setTbook_id(info.getTbook_id());
 			tbook = adminManager.queryTbook(tbook);
 			model.addAttribute("tbook", tbook);
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书章节信息异常", "Admin_listInfos.action?paramsInfo.tbook_id="+paramsInfo.getTbook_id(), model);
 			return "infoTip";
 		}
-		
+
 		return "infoDetail";
 	}
-	 
+
 	/**
 	 * @Title: editInfo
 	 * @Description: 编辑图书章节
@@ -978,15 +1004,15 @@ public class AdminAction {
 			Info info = adminManager.queryInfo(paramsInfo);
 			model.addAttribute("info", info);
 			model.addAttribute("tbook_id", paramsInfo.getTbook_id());
-			
+
 		} catch (Exception e) {
 			setErrorTip("查询图书章节异常", "Admin_listInfos.action?paramsInfo.tbook_id="+paramsInfo.getTbook_id(), model);
 			return "infoTip";
 		}
-		
+
 		return "infoEdit";
 	}
-	
+
 	/**
 	 * @Title: saveInfo
 	 * @Description: 保存编辑图书章节
@@ -998,7 +1024,7 @@ public class AdminAction {
 		try {
 			 //保存编辑图书章节
 			adminManager.updateInfo(paramsInfo);
-			
+
 		} catch (Exception e) {
 			model.addAttribute("tip","编辑失败");
 			model.addAttribute("info", paramsInfo);
@@ -1008,7 +1034,7 @@ public class AdminAction {
 		setSuccessTip("编辑图书章节成功", "Admin_listInfos.action?paramsInfo.tbook_id="+paramsInfo.getTbook_id(), model);
 		return "infoTip";
 	}
-	
+
 	/**
 	 * @Title: delInfos
 	 * @Description: 删除图书章节
@@ -1027,7 +1053,7 @@ public class AdminAction {
 		}
 		return "infoTip";
 	}
-	
+
 	private boolean validateAdmin(HttpSession httpSession){
 		User admin = (User)httpSession.getAttribute("admin");
 		if (admin!=null) {
@@ -1036,14 +1062,14 @@ public class AdminAction {
 			return false;
 		}
 	}
-	
+
 	private void setErrorTip(String tip,String url,ModelMap model){
 		model.addAttribute("tipType", "error");
 		model.addAttribute("tip", tip);
 		model.addAttribute("url1", url);
 		model.addAttribute("value1", "确 定");
 	}
-	
+
 	private void setSuccessTip(String tip,String url,ModelMap model){
 		model.addAttribute("tipType", "success");
 		model.addAttribute("tip", tip);

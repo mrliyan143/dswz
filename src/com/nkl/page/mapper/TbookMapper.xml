@@ -7,7 +7,7 @@
 		<![CDATA[
 
                     insert into tbook
-                        values(null,#{user_id},#{book_type_id},#{tbook_name},#{tbook_pic},#{tbook_author},#{tbook_desc},#{tbook_date},#{tbook_click},#{tbook_words},#{tbook_flag},#{tbook_money})
+                        values(null,#{user_id},#{book_type_id},#{tbook_name},#{tbook_pic},#{tbook_author},#{tbook_desc},#{tbook_date},#{tbook_click},#{tbook_words},#{tbook_flag},#{tbook_money},#{tbook_show})
 
         ]]>
 	</insert>
@@ -28,6 +28,23 @@
             #{tbook_ids}
         </foreach>
     </delete>
+    
+    <update id="upTbookShow" parameterType="Tbook">
+        <![CDATA[
+			UPDATE tbook
+		]]>
+        <set>
+            <if test="tbook_show!=null">
+                <![CDATA[
+				tbook_show = 1
+			]]>
+            </if>
+        </set>
+        <where>
+            tbook_id = #{tbook_id}
+        </where>
+
+    </update>
 
     <update id="updateTbookMoney" parameterType="Tbook">
         <![CDATA[
@@ -150,7 +167,7 @@
             </if>
         </where>
     </select>
-
+    
 
     <select id="listTbooks" parameterType="Tbook" resultType="Tbook">
         <![CDATA[
@@ -172,11 +189,11 @@
 				and b.tbook_name like '%${tbook_name}%'
 			]]>
             </if>
-            <if test="user_id!=0">
-                <![CDATA[
-				and b.user_id = #{user_id}
-			]]>
-            </if>
+<!--            <if test="user_id!=0">-->
+<!--                <![CDATA[-->
+<!--				and b.user_id = #{user_id}-->
+<!--			]]>-->
+<!--            </if>-->
             <if test="real_name!=null and real_name!=''">
                 <![CDATA[
 				and u.real_name like '%${real_name}%'
@@ -243,11 +260,11 @@
 				and b.tbook_name like '%${tbook_name}%'
 			]]>
             </if>
-            <if test="user_id!=0">
-                <![CDATA[
-				and b.user_id = #{user_id}
-			]]>
-            </if>
+<!--            <if test="user_id!=0">-->
+<!--                <![CDATA[-->
+<!--				and b.user_id = #{user_id}-->
+<!--			]]>-->
+<!--            </if>-->
             <if test="real_name!=null and real_name!=''">
                 <![CDATA[
 				and u.real_name like '%${real_name}%'
