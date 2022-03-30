@@ -1,8 +1,8 @@
 $(document).ready(function(){
-	var postStr = {
-		'user_name':'',
-		'user_pass':''
-	};
+    var postStr = {
+        'user_name':'',
+        'user_pass':''
+    };
 	var selfCenterBtn = $("#selfCenterBtn");
 	var loginOutBtn = $("#loginOutBtn");
 	var loginInBtn = $("#loginInBtn");
@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var loginField = $("#loginField");
 	var user_name = $("#user_name");
 	var user_pass = $("#user_pass");
-	var loginDefault = $("#loginDefault")
+	var loginDefault = $("#loginDefault");
 	
 	loginOutBtn.bind('click',function(){
 		$.post('LoginOutSystem.action',null,

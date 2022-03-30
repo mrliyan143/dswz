@@ -41,11 +41,12 @@
     </script>
 
     <script language="javascript" type="text/javascript">
-
         var user_name="${userFront.user_name}";
         var user_pass="${userFront.user_pass}";
         var user_id="${userFront.user_id}";
         var buy_book="${userFront.buy_book}";
+        var tbook_id="${tbook.tbook_id}";
+        var tbook_money="${tbook.tbook_money}";
 
         $(document).ready(function () {
             var postStr = {
@@ -53,6 +54,11 @@
                 'user_id':'',
                 'user_pass':''
             };
+
+            var postStrId = {
+                'tbook_id':'',
+                'tbook_money':''
+            }
             var buybook = $("#buybook");
             // var user_name = $("#user_name");
             // var user_pass = $("#user_pass");
@@ -60,19 +66,28 @@
             postStr['user_name'] = user_name;
             postStr['user_pass'] = user_pass;
             postStr['user_id'] = user_id;
+            postStrId['tbook_id'] = tbook_id;
+            postStrId['tbook_money'] = tbook_money;
             buybook.bind('click', function () {
                 $.post('BuyBookSystem.action', postStr,
                     function (responseObj) {
                         if (responseObj.success) {
                             if (buy_book==1) {
                                 alert('购买成功');
-                                window.location.href="page_queryInfo.action?info_id=${info.next_id}";
                             }
 
-                        } else if (responseObj.err.msg) {
-                            alert('购买失败：'+responseObj.err.msg);
                         }
+                        //else if (responseObj.err.msg) {
+                        // 	alert('购买失败：'+responseObj.err.msg);
+                        // }
                     })
+                $.post('BuyBookMoneySystem.action', postStrId,
+                    function(){
+                        alert('收益到账');
+                        window.location.href="page_queryInfo.action?info_id=${info.next_id}";
+
+                    })
+
 
             }, 'json');
         });
@@ -115,12 +130,11 @@
 
 
         <c:if test="${info.info_id>8&&info.info_id<12}">
-            <p>${userFront.buy_book}</p>
             <div class="article_con">${info.info_contentShow}</div>
         </c:if>
         <c:if test="${info.info_id>11&&userFront.buy_book==0}">
             <h1 align="center">此为收费章节，需要购买</h1>
-            <p>${userFront.buy_book}</p>
+            <p>${tbook.tbook_money}</p>
             <div align="center">
 <%--                用户名：<input type="text" id="user_name" class="inputstyle" name="user_name"  style="width:100px"/>--%>
 <%--                <br/>密　码：<input type="password" id="user_pass" class="inputstyle" name="user_pass"  style="width:100px"/>--%>
@@ -130,7 +144,6 @@
 
         </c:if>
         <c:if test="${userFront.buy_book==1}">
-            <p>${userFront.buy_book}</p>
             <div class="article_con">${info.info_contentShow}</div>
         </c:if>
         <div class="article_time"><a style="text-decoration:underline;"

@@ -190,7 +190,19 @@ public class IndexManager {
 		
 		return _tbook;
 	}
-	
+
+	public Tbook queryTbookName(Tbook tbook) {
+
+		Tbook _tbook = tbookDao.getTbookName(tbook);
+
+		return _tbook;
+	}
+
+	public void updateTbookMoney(Tbook tbook){
+     tbookDao.updateTbookMoney(tbook);
+
+    }
+
 	public void updateTbookClick(Tbook tbook) {
 		
 		tbook.setTbook_click(tbook.getTbook_click()+1);

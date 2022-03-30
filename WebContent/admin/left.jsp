@@ -275,7 +275,7 @@ H1 a {
                             </table>
                             <ul class="MM">
                                     <%--                                            <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>--%>
-                                <li><a href="Admin_addTbookShow.action" target="MainFrame">图书收益</a></li>
+                                <li><a href="Admin_addBookMoney.action" target="MainFrame">图书收益</a></li>
                             </ul>
 						</div>
 

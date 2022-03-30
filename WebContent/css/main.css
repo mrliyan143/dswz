@@ -111,14 +111,14 @@
     vertical-align:text-bottom;
     color:gray;
 }
-.btnstyle
-{
+.btnstyle {
+
 	CURSOR: pointer;
 	COLOR: #000000;
 	PADDING-TOP: 2px;
 	HEIGHT: 23px;
 	background-image: url(../images/bt_yangs.jpg);
 	background-repeat: repeat-x;
-	BORDER:1px solid #b54747;
-	vertical-align:text-bottom;
+	BORDER: 1px solid #b54747;
+	vertical-align: text-bottom;
 }

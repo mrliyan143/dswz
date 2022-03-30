@@ -2,6 +2,10 @@ package com.nkl.admin.manager;
 
 import java.util.List;
 
+import com.nkl.common.util.StringUtil;
+import com.nkl.common.util.Transcode;
+import com.nkl.page.dao.ITbookDao;
+import com.nkl.page.domain.Tbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +17,7 @@ public class LoginManager {
 
 	@Autowired
 	IUserDao userDao;
+	ITbookDao tbookDao;
 	
 	/**
 	 * @Title: listUsers
@@ -28,7 +33,29 @@ public class LoginManager {
 		
 		return users;
 	}
-	
+
+	public Tbook queryTbook(Tbook tbook) {
+
+		Tbook _tbook = tbookDao.getTbook(tbook);
+
+		return _tbook;
+	}
+
+	public void updateTbookMoney(Tbook tbook){
+		tbookDao.updateTbookMoney(tbook);
+
+	}
+
+	public void updateTbook(Tbook tbook) {
+
+		if (!StringUtil.isEmptyString(tbook.getTbook_desc())) {
+			tbook.setTbook_desc(Transcode.htmlEncode(tbook.getTbook_desc()));
+		}
+		tbookDao.updateTbook(tbook);
+
+	}
+
+
 	/**
 	 * @Title: getUser
 	 * @Description: 查询用户

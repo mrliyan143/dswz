@@ -105,6 +105,22 @@ public class IndexAction {
 		
 		return "info";
 	}
+
+
+
+	@RequestMapping(value="queryTbookName.action",method=RequestMethod.GET)
+	public String queryTbookName(Tbook paramsTbook,
+								 ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
+		try {
+			//得到图书
+			Tbook tbook = indexManager.queryTbookName(paramsTbook);
+			model.addAttribute("tbook", tbook);
+
+		} catch (Exception e) {
+			return "bookMoney";
+		}
+		return "bookMoney";
+	}
 	
 	/**
 	 * @Title: queryInfo

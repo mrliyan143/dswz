@@ -15,6 +15,11 @@ public interface ITbookDao {
 
 	public abstract Tbook getTbook(Tbook tbook);
 
+	public abstract Tbook getTbookName(Tbook tbook);
+
+	public abstract int updateTbookMoney(Tbook tbook);
+
+
 	public abstract List<Tbook>  listTbooks(Tbook tbook);
 
 	public abstract int listTbooksCount(Tbook tbook);

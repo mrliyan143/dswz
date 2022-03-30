@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.nkl.admin.manager.AdminManager;
 import com.nkl.admin.manager.LoginManager;
+import com.nkl.page.domain.Tbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -150,12 +151,28 @@ public class LoginIndexAction {
         try {
             adminManager.updateBuyBook(user);
             user.setBuy_book(1);
+            user.setUser_money(user.getUser_money()-20.0);
             loginIndexManager.updateUser(user);
+
             httpSession.setAttribute("userFront", user);
             return jsonData;
         } catch (Exception e) {
             jsonData.setErrorReason("购买异常");
             return jsonData;
         }
+    }
+
+    @RequestMapping(value = "BuyBookMoneySystem.action", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONData BuySystemMoney(Tbook tbookparams,
+                              ModelMap model, HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
+        JSONData jsonData = new JSONData();
+        System.out.println("======tbookid====||||||=="+tbookparams.getTbook_id());
+        Tbook tbook = adminManager.queryTbook(tbookparams);
+//        tbook.setTbook_money(tbook.getTbook_money()+20.0);
+        System.out.println("-----tbookmoney---|----"+tbook.getTbook_money());
+        adminManager.updateTbookMoney(tbookparams);
+        System.out.println("-----tbookmoney2---|----"+tbook.getTbook_money());
+        return  jsonData;
     }
 }

@@ -656,6 +656,21 @@ public class AdminAction {
 		
 		return "tbookDetail";
 	}
+
+	@RequestMapping(value = "admin/Admin_queryTbookName.action")
+	public String queryTbookName(Tbook paramsTbook,ModelMap model,
+								 HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
+		try {
+			//得到图书
+			Tbook tbook = adminManager.queryTbookName(paramsTbook);
+			System.out.println("------------book_name----------------"+tbook.getTbook_name());
+//			model.addAttribute("tbook", tbook);
+			httpSession.setAttribute("tbook", tbook);
+		} catch (Exception e) {
+			return "index";
+		}
+		return "index";
+	}
 	
 	/**
 	 * @Title: addTbookShow
@@ -671,6 +686,17 @@ public class AdminAction {
 		model.addAttribute("bookTypes", bookTypes);
 		
 		return "tbookEdit";
+	}
+
+	@RequestMapping(value="admin/Admin_addBookMoney.action")
+	public String addBookMoney(ModelMap model){
+		//查询图书类型
+		BookType bookType = new BookType();
+		bookType.setStart(-1);
+		List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
+		model.addAttribute("bookTypes", bookTypes);
+
+		return "bookMoney";
 	}
 	
 	/**

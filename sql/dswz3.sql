@@ -145,6 +145,7 @@ CREATE TABLE `tbook` (
   `tbook_date` date DEFAULT NULL,
   `tbook_click` int(11) DEFAULT NULL,
   `tbook_words` double DEFAULT NULL,
+  `tbook_money` double DEFAULT '0',
   `tbook_flag` int(11) DEFAULT '1' COMMENT '1:否 2:是',
   PRIMARY KEY (`tbook_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;

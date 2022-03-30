@@ -216,6 +216,11 @@ public class AdminManager {
 		
 	}
 
+	public void updateTbookMoney(Tbook tbook){
+		tbookDao.updateTbookMoney(tbook);
+
+	}
+
 	/**
 	 * @Title: delBookType
 	 * @Description: 删除图书类型信息
@@ -255,6 +260,13 @@ public class AdminManager {
 		
 		Tbook _tbook = tbookDao.getTbook(tbook);
 		
+		return _tbook;
+	}
+
+	public Tbook queryTbookName(Tbook tbook) {
+
+		Tbook _tbook = tbookDao.getTbookName(tbook);
+
 		return _tbook;
 	}
 

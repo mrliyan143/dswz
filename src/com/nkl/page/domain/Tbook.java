@@ -21,8 +21,8 @@ public class Tbook extends BaseDomain {
 	private int tbook_click; // 
 	private double tbook_words; // 单位：万
 	private int tbook_flag; // 1:连载中 2:已完本
-
-	private String real_name; // 
+	private double tbook_money;
+	private String real_name; //
 	private String book_type_name; // 
 	private int top_flag; 
 	private double evaluate_score; // 
@@ -102,6 +102,14 @@ public class Tbook extends BaseDomain {
 			return Transcode.htmlDiscode(tbook_desc);
 		}
 		return tbook_desc;
+	}
+
+	public double getTbook_money() {
+		return tbook_money;
+	}
+
+	public void setTbook_money(double tbook_money) {
+		this.tbook_money = tbook_money;
 	}
 
 	public void setTbook_date(String tbook_date){
