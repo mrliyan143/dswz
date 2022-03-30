@@ -117,7 +117,6 @@
 	</c:if>
 	<c:if test="${info.info_id>11&&userFront.buy_book==0}">
 		<h1 align="center">此为收费章节，需要购买</h1>
-		<p>${tbook.tbook_money}</p>
 		<div align="center">
 				<%--                用户名：<input type="text" id="user_name" class="inputstyle" name="user_name"  style="width:100px"/>--%>
 				<%--                <br/>密　码：<input type="password" id="user_pass" class="inputstyle" name="user_pass"  style="width:100px"/>--%>

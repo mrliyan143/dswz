@@ -51,7 +51,7 @@
 			UPDATE tbook
 		]]>
         <set>
-            <if test="book_money!=null">
+            <if test="tbook_money!=null">
                 <![CDATA[
 				tbook_money = #{tbook_money}+20
 			]]>
