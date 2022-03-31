@@ -149,7 +149,7 @@ function ChangePage(pagenum)
        <a href="Admin_editTbook.action?tbook_id=${tbook.tbook_id}">编辑</a>
 
        <br/><a href="Admin_listInfos.action?tbook_id=${tbook.tbook_id}">章节管理</a>
-         <c:if test="${tbook.tbook_show==0}">
+         <c:if test="${tbook.tbook_show==0 && admin.user_id==1}">
              <a href="Admin_bookshow.action?tbook_id=${tbook.tbook_id}">审核</a>
          </c:if>
      </td>

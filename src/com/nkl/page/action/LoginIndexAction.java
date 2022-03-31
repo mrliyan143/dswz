@@ -147,7 +147,6 @@ public class LoginIndexAction {
         JSONData jsonData = new JSONData();
         User user =loginManager.getUser(params);
 
-        System.out.println("--------------------==========="+user.getUser_name());
         try {
             adminManager.updateBuyBook(user);
             user.setBuy_book(1);
@@ -171,7 +170,7 @@ public class LoginIndexAction {
         Tbook tbook = adminManager.queryTbook(tbookparams);
 //        tbook.setTbook_money(tbook.getTbook_money()+20.0);
         System.out.println("-----tbookmoney---|----"+tbook.getTbook_money());
-        adminManager.updateTbookMoney(tbookparams);
+        adminManager.updateTbookMoney(tbook);
         System.out.println("-----tbookmoney2---|----"+tbook.getTbook_money());
         return  jsonData;
     }

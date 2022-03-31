@@ -689,7 +689,7 @@ public class AdminAction {
 		return "tbookEdit";
 	}
 
-	@RequestMapping(value="admin/Admin_addTbookShow.action_1")
+	@RequestMapping(value="admin/Admin_addTbookShow_1.action")
 	public String addTbookShow_1(ModelMap model){
 		//查询图书类型
 		BookType bookType = new BookType();
@@ -697,7 +697,7 @@ public class AdminAction {
 		List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
 		model.addAttribute("bookTypes", bookTypes);
 
-		return "tbookEdit";
+		return "tbookEdit_1";
 	}
 
 	@RequestMapping(value="admin/Admin_addBookMoney.action")

@@ -276,10 +276,10 @@ $(document).ready(function(){
 			alert('请先登录后在进行发表书评！')
 			return;
 		}
-		if(user_kind!='2'){
-			 alert('只有会员才能发表书评');
-			 return;
-		}
+		// if(user_kind!='2'){
+		// 	 alert('只有会员才能发表书评');
+		// 	 return;
+		// }
 		if($("#noticeContent").val()==''){
 			alert('书评内容不能为空！')
 			return;
