@@ -19,56 +19,57 @@
 <script language="javascript" type="text/javascript" src=""></script>
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 	<script language="javascript" type="text/javascript">
-		var user_name="${userFront.user_name}";
-		var user_pass="${userFront.user_pass}";
-		var user_id="${userFront.user_id}";
-		var buy_book="${userFront.buy_book}";
-		var tbook_id="${tbook.tbook_id}";
-		var tbook_money="${tbook.tbook_money}";
+        var user_name = "${userFront.user_name}";
+        var user_pass = "${userFront.user_pass}";
+        var user_id = "${userFront.user_id}";
+        var buy_book = "${userFront.buy_book}";
+        var tbook_id = "${tbook.tbook_id}";
+        var tbook_money = "${tbook.tbook_money}";
+        var user_money ="${userFront.user_money}";
 
-		$(document).ready(function () {
-			var postStr = {
-				'user_name':'',
-				'user_id':'',
-				'user_pass':''
-			};
+        $(document).ready(function () {
+            var postStr = {
+                'user_name': '',
+                'user_id': '',
+                'user_pass': ''
+            };
 
-			var postStrId = {
-				'tbook_id':'',
-				'tbook_money':''
-			}
-			var buybook = $("#buybook");
-			// var user_name = $("#user_name");
-			// var user_pass = $("#user_pass");
-			// var user_id = $("#user_id");
-			postStr['user_name'] = user_name;
-			postStr['user_pass'] = user_pass;
-			postStr['user_id'] = user_id;
-			postStrId['tbook_id'] = tbook_id;
-			postStrId['tbook_money'] = tbook_money;
-			buybook.bind('click', function () {
-				$.post('BuyBookSystem.action', postStr,
-						function (responseObj) {
-							if (responseObj.success) {
-								if (buy_book==1) {
-									alert('购买成功');
-								}
-
-							}
-							//else if (responseObj.err.msg) {
-							// 	alert('购买失败：'+responseObj.err.msg);
-							// }
-						})
-				$.post('BuyBookMoneySystem.action', postStrId,
-						function(){
-							alert('成功');
-							window.location.href="page_queryInfo.action?info_id=${info.next_id}";
-
-						})
-
-
-			}, 'json');
-		});
+            var postStrId = {
+                'tbook_id': '',
+                'tbook_money': ''
+            }
+            var buybook = $("#buybook");
+            // var user_name = $("#user_name");
+            // var user_pass = $("#user_pass");
+            // var user_id = $("#user_id");
+            postStr['user_name'] = user_name;
+            postStr['user_pass'] = user_pass;
+            postStr['user_id'] = user_id;
+            postStrId['tbook_id'] = tbook_id;
+            postStrId['tbook_money'] = tbook_money;
+            buybook.bind('click', function () {
+                $.post('BuyBookSystem.action', postStr,
+                    function (responseObj) {
+                        if (responseObj.success) {
+                            if (buy_book == 1) {
+                                // alert('购买成功');
+                            }else if (user_money<0){
+                                alert('余额不足');
+                            }
+                        }
+                        //else if (responseObj.err.msg) {
+                        // 	alert('购买失败：'+responseObj.err.msg);
+                        // }
+                    })
+                $.post('BuyBookMoneySystem.action', postStrId,
+                    function () {
+                        if (user_money >0) {
+                            alert('成功');
+                            window.location.href = "page_queryInfo.action?info_id=${info.next_id}";
+                        }
+                    })
+            }, 'json');
+        });
 	</script>
 
 <style type="text/css">

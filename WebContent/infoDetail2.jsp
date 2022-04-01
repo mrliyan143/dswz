@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="css/message.css">
     <script language="javascript" type="text/javascript" src=""></script>
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<%--    <script type="text/javascript" src="js/login.js"></script>--%>
+    <%--    <script type="text/javascript" src="js/login.js"></script>--%>
     <script language="javascript" type="text/javascript">
         $(document).ready(function () {
             var height = $("#list").height();
@@ -41,23 +41,24 @@
     </script>
 
     <script language="javascript" type="text/javascript">
-        var user_name="${userFront.user_name}";
-        var user_pass="${userFront.user_pass}";
-        var user_id="${userFront.user_id}";
-        var buy_book="${userFront.buy_book}";
-        var tbook_id="${tbook.tbook_id}";
-        var tbook_money="${tbook.tbook_money}";
+        var user_name = "${userFront.user_name}";
+        var user_pass = "${userFront.user_pass}";
+        var user_id = "${userFront.user_id}";
+        var buy_book = "${userFront.buy_book}";
+        var tbook_id = "${tbook.tbook_id}";
+        var tbook_money = "${tbook.tbook_money}";
+        var user_money ="${userFront.user_money}";
 
         $(document).ready(function () {
             var postStr = {
-                'user_name':'',
-                'user_id':'',
-                'user_pass':''
+                'user_name': '',
+                'user_id': '',
+                'user_pass': ''
             };
 
             var postStrId = {
-                'tbook_id':'',
-                'tbook_money':''
+                'tbook_id': '',
+                'tbook_money': ''
             }
             var buybook = $("#buybook");
             // var user_name = $("#user_name");
@@ -72,23 +73,23 @@
                 $.post('BuyBookSystem.action', postStr,
                     function (responseObj) {
                         if (responseObj.success) {
-                            if (buy_book==1) {
-                                alert('购买成功');
+                            if (buy_book == 1) {
+                                // alert('购买成功');
+                            }else if (user_money<0){
+                                alert('余额不足');
                             }
-
                         }
                         //else if (responseObj.err.msg) {
                         // 	alert('购买失败：'+responseObj.err.msg);
                         // }
                     })
                 $.post('BuyBookMoneySystem.action', postStrId,
-                    function(){
-                        alert('成功');
-                        window.location.href="page_queryInfo.action?info_id=${info.next_id}";
-
+                    function () {
+                        if (user_money >0) {
+                            alert('成功');
+                            window.location.href = "page_queryInfo.action?info_id=${info.next_id}";
+                        }
                     })
-
-
             }, 'json');
         });
     </script>
@@ -136,9 +137,9 @@
             <h1 align="center">此为收费章节，需要购买</h1>
             <p>${tbook.tbook_money}</p>
             <div align="center">
-<%--                用户名：<input type="text" id="user_name" class="inputstyle" name="user_name"  style="width:100px"/>--%>
-<%--                <br/>密　码：<input type="password" id="user_pass" class="inputstyle" name="user_pass"  style="width:100px"/>--%>
-<%--                <br/>　　　--%>
+                    <%--                用户名：<input type="text" id="user_name" class="inputstyle" name="user_name"  style="width:100px"/>--%>
+                    <%--                <br/>密　码：<input type="password" id="user_pass" class="inputstyle" name="user_pass"  style="width:100px"/>--%>
+                    <%--                <br/>　　　--%>
                 <input type="button" id="buybook" class="btnstyle" value="购买"/>
             </div>
 

@@ -147,7 +147,11 @@ public class LoginIndexAction {
         JSONData jsonData = new JSONData();
         User user =loginManager.getUser(params);
 
+        System.out.println( "11111111111user_money"+user.getUser_money());
         try {
+            if(user.getUser_money()<0){
+                return jsonData;
+            }
             adminManager.updateBuyBook(user);
             user.setBuy_book(1);
             user.setUser_money(user.getUser_money()-20.0);
@@ -165,7 +169,12 @@ public class LoginIndexAction {
     @ResponseBody
     public JSONData BuySystemMoney(Tbook tbookparams,
                               ModelMap model, HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
+        User user = new User();
         JSONData jsonData = new JSONData();
+        if(user.getUser_money()<0){
+            System.out.println("111111money"+user.getUser_money());
+            return jsonData;
+        }
         System.out.println("======tbookid====||||||=="+tbookparams.getTbook_id());
         Tbook tbook = adminManager.queryTbook(tbookparams);
 //        tbook.setTbook_money(tbook.getTbook_money()+20.0);
