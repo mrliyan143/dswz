@@ -238,7 +238,7 @@ H1 a {
 					  </tr>
 					</table>
 					<ul class="MM">
-					  <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>
+					  <li><a href="Admin_listTbooks.action" target="MainFrame">图书编辑</a></li>
 <%--					  <li><a href="Admin_addTbookShow.action" target="MainFrame">新增图书</a></li>--%>
 					</ul>
 				  </div>
@@ -265,7 +265,7 @@ H1 a {
 								</tr>
 							</table>
 							<ul class="MM">
-									<%--                                            <li><a href="Admin_listTbooks.action" target="MainFrame">图书查询</a></li>--%>
+								<li><a href="Admin_listTbooks_1.action" target="MainFrame">图书编辑</a></li>
 								<li><a href="Admin_addTbookShow.action" target="MainFrame">新增图书</a></li>
 							</ul>
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">

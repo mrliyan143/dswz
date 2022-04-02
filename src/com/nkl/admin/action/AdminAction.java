@@ -600,7 +600,7 @@ public class AdminAction {
 	 */
 	@RequestMapping(value="admin/Admin_listTbooks.action")
 	public String listTbooks(Tbook paramsTbook,PaperUtil paperUtil,
-			ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
+							 ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
 		try {
 			if (paramsTbook==null) {
 				paramsTbook = new Tbook();
@@ -672,6 +672,46 @@ public class AdminAction {
 		}
 		return "index";
 	}
+	@RequestMapping(value="admin/Admin_listTbooks_1.action")
+	public String listTbooks_1(Tbook paramsTbook,PaperUtil paperUtil,
+							 ModelMap model,HttpServletRequest request,HttpServletResponse response,HttpSession httpSession){
+		try {
+			if (paramsTbook==null) {
+				paramsTbook = new Tbook();
+			}
+			//设置分页信息
+			paperUtil.setPagination(paramsTbook);
+			Object object = httpSession.getAttribute("admin");
+			//反射获取object的data属性值(subEvent中的eventId)
+			java.lang.reflect.Field fi = null;
+			String s =null;
+			try {
+				fi = object.getClass().getDeclaredField("user_id");
+				fi.setAccessible(true);
+				s= fi.get(object).toString();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			paramsTbook.setUser_id(Integer.parseInt(s));
+			int[] sum={0};
+			List<Tbook> tbooks = adminManager.listTbooks(paramsTbook,sum);
+			model.addAttribute("tbooks", tbooks);
+			paperUtil.setTotalCount(sum[0]);
+			//查询图书类型
+			BookType bookType = new BookType();
+			bookType.setStart(-1);
+			List<BookType> bookTypes = adminManager.listBookTypes(bookType, null);
+			model.addAttribute("bookTypes", bookTypes);
+
+		} catch (Exception e) {
+			setErrorTip("查询图书异常","main.jsp",model);
+			return "infoTip";
+		}
+
+		return "tbookShow_1";
+	}
+
 
 	/**
 	 * @Title: addTbookShow
